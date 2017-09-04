@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListService } from "app/service/list.service";
 import { DropDownService } from "app/service/drop-down.service";
-
+import {Router} from '@angular/router';
 @Component({
-  selector: 'app-component',
-  templateUrl: 'app.component.html',
-  styleUrls: ['./app.component.css'],
- 
+  selector: 'app-student',
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.css']
 })
-export class RootComponent {
+export class StudentComponent implements OnInit {
   title: string;
   name: string;
   lastName: string;
@@ -16,7 +15,7 @@ export class RootComponent {
   arrayList: any[] = [];
   genderArray: any[] = [];
   searchData: string;
-  constructor(private _listService: ListService, private _dropDownService: DropDownService) { }
+  constructor(private _listService: ListService, private _dropDownService: DropDownService,private router: Router) { }
 
   ngOnInit() {
     this.userDetail = {
@@ -43,5 +42,7 @@ export class RootComponent {
     }
     this._listService.addList(model);
     this.arrayList = this._listService.getList();
+    this.router.navigateByUrl('/list');
   }
+  
 }

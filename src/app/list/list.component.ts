@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListService } from "app/service/list.service";
 import { DropDownService } from "app/service/drop-down.service";
 
 @Component({
-  selector: 'app-component',
-  templateUrl: 'app.component.html',
-  styleUrls: ['./app.component.css'],
- 
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class RootComponent {
+export class ListComponent implements OnInit {
+ 
   title: string;
   name: string;
   lastName: string;

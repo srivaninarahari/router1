@@ -1,0 +1,31 @@
+
+
+<div class="form-group">
+<div *ngIf="arrayList.length > 0">
+  <div class="form-group">
+    <input type="text" name="search" class="form-control" placeholder="Search" [(ngModel)]="searchData">
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>LastName</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of (arrayList | searchBy : searchData)">
+          <td>{{item.name | capitalize}}</td>
+          <td>{{item.lastName}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.gender | uppercase}}</td>
+          <td>{{item.date | date : 'shortDate'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
